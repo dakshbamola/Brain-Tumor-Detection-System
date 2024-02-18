@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Detection</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+
+<body>
+    <h1>Brain Tumor Detection</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <label for="file">Choose an image</label>
+        <input type="file" name="file" id="file" accept=".jpg, .jpeg, .png" required>
+        <button type="submit">Detect</button>
+    </form>
+    {% if result %}
+        <h2>{{ result }}</h2>
+        {% if image_file %}
+            <img src="{{ image_file }}" alt="Uploaded Image">
+        {% endif %}
+    {% endif %}
+
+    <section>
+        <h2>About</h2>
+        <p>
+            This website uses a trained machine learning model to predict the presence of brain tumors in MRI images.
+        </p>
+
+        <h2>Instructions</h2>
+        <p>
+            Upload an MRI image using the provided form, and the website will provide predictions based on the trained
+            model.
+        </p>
+
+    </section>
+
+    <footer>
+        <p>This website is designed for brain tumor prediction. Upload an MRI image to get predictions.</p>
+    </footer>
+
+</body>
+
+</html>
